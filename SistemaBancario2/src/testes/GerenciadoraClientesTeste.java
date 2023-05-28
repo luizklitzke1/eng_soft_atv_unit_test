@@ -14,7 +14,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.junit.runner.RunWith;
 
 //Imports das classes de negocio
 import negocio.Cliente;
@@ -24,11 +23,11 @@ import negocio.IdadeNaoPermitidaException;
 @DisplayName("Testes da classe GerenciadoraClientesTeste")
 public class GerenciadoraClientesTeste 
 {
-	private ArrayList<Cliente>        listaClientes       ;
+	private List<Cliente>        listaClientes       ;
     private GerenciadoraClientes gerenciadoraClientes;
 
     @BeforeEach
-    void setUp() 
+    public void setUp() 
     {
         this.listaClientes = new ArrayList<Cliente>();
         
@@ -44,7 +43,7 @@ public class GerenciadoraClientesTeste
     }
 
     @AfterEach 
-    void tearDown() 
+    public void tearDown() 
     {
         this.listaClientes        = null;
         this.gerenciadoraClientes = null;
@@ -57,7 +56,6 @@ public class GerenciadoraClientesTeste
         Assertions.assertEquals(this.gerenciadoraClientes.getClientesDoBanco(), this.listaClientes);
     }
     
-    @Test
     @DisplayName("GerenciadoraClientes pesquisaCliente Existentes")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 1, 2, 3, 4, 5, 6 })
@@ -67,7 +65,6 @@ public class GerenciadoraClientesTeste
     	Assertions.assertNotNull(cliente);
     }
     
-    @Test
     @DisplayName("GerenciadoraClientes pesquisaCliente Inexistentes")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 7, 22, 9 })
@@ -75,29 +72,6 @@ public class GerenciadoraClientesTeste
     {
     	Cliente cliente = this.gerenciadoraClientes.pesquisaCliente(id);
     	Assertions.assertNull(cliente);
-    }
-    
-    @Test
-    @DisplayName("GerenciadoraClientes pesquisaCliente Mistos")
-    public void pesquisaClientesMistos_Test() 
-    {
-    	Cliente cliente1 = this.gerenciadoraClientes.pesquisaCliente(1);
-    	Assertions.assertNotNull(cliente1);
-    	
-    	Cliente cliente2 = this.gerenciadoraClientes.pesquisaCliente(2);
-    	Assertions.assertNull(cliente2);
-    	
-    	Cliente cliente3 = this.gerenciadoraClientes.pesquisaCliente(3);
-    	Assertions.assertNotNull(cliente3);
-    	
-    	Cliente cliente4 = this.gerenciadoraClientes.pesquisaCliente(4);
-    	Assertions.assertNull(cliente4);
-    	
-    	Cliente cliente5 = this.gerenciadoraClientes.pesquisaCliente(5);
-    	Assertions.assertNotNull(cliente5);
-    	
-    	Cliente cliente6 = this.gerenciadoraClientes.pesquisaCliente(6);
-    	Assertions.assertNull(cliente6);
     }
     
     @Test
@@ -111,18 +85,15 @@ public class GerenciadoraClientesTeste
     	Assertions.assertEquals(cliente7, this.listaClientes.get(6));
     }
     
-    @Test
     @DisplayName("GerenciadoraClientes removeCliente Existente")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 1, 2, 3, 4, 5, 6 })
-    @RunWith(JUnitParamsRunner.class)
     public void removeClienteExistente_Test(int id) 
     {
     	Assertions.assertTrue(this.gerenciadoraClientes.removeCliente(id));
     	Assertions.assertEquals(5, this.gerenciadoraClientes.getClientesDoBanco().size());
     }
     
-    @Test
     @DisplayName("GerenciadoraClientes removeCliente Inexistente")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 99, 0, 23 })
@@ -132,31 +103,28 @@ public class GerenciadoraClientesTeste
     	Assertions.assertEquals(6, this.gerenciadoraClientes.getClientesDoBanco().size());
     }
     
-    @Test
     @DisplayName("GerenciadoraClientes clienteAtivo Ativo")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 1, 3, 5 })
     public void clienteAtivoAtivo_Test(int id) 
     {
-    	Assertions.assertTrue(this.gerenciadoraClientes.removeCliente(id));
+    	Assertions.assertTrue(this.gerenciadoraClientes.clienteAtivo(id));
     }
     
-    @Test
     @DisplayName("GerenciadoraClientes clienteAtivo Inativo")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 2, 4, 6 })
     public void clienteAtivoInativo_Test(int id) 
     {
-    	Assertions.assertFalse(this.gerenciadoraClientes.removeCliente(id));
+    	Assertions.assertFalse(this.gerenciadoraClientes.clienteAtivo(id));
     }
     
-    @Test
     @DisplayName("GerenciadoraClientes clienteAtivo Inexistente")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 99, 82, 22, 0 })
     public void clienteAtivoInexistente_Test(int id) 
     {
-    	Assertions.assertFalse(this.gerenciadoraClientes.removeCliente(id));
+    	Assertions.assertFalse(this.gerenciadoraClientes.clienteAtivo(id));
     }
     
     @Test
@@ -167,27 +135,20 @@ public class GerenciadoraClientesTeste
         Assertions.assertTrue(this.gerenciadoraClientes.getClientesDoBanco().isEmpty());
     }
     
-    @Test
     @DisplayName      ("GerenciadoraClientes validaIdade Válidos")
     @ParameterizedTest(name = "idade: {0}")
     @ValueSource      (ints = { 22, 45, 18, 18, 65, 50})
-    public void validaIdadeValidos_Test() throws IdadeNaoPermitidaException 
+    public void validaIdadeValidos_Test(int idade) throws IdadeNaoPermitidaException 
     {
-    	try {
-			Assertions.assertTrue(this.gerenciadoraClientes.validaIdade(1));
-		} catch (IdadeNaoPermitidaException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	Assertions.assertDoesNotThrow(() -> Assertions.assertTrue(this.gerenciadoraClientes.validaIdade(idade)));
     }
     
-    @Test
     @DisplayName      ("GerenciadoraClientes validaIdade Inválidos")
     @ParameterizedTest(name = "idade: {0}")
     @ValueSource      (ints = { 2, 5, 98, 12, 17, 67})
     public void validaIdadeInvalidos_Test(int idade)
     {
-    	Exception exception = assertThrows(IdadeNaoPermitidaException.class, () -> {
+    	Exception exception = Assertions.assertThrows(IdadeNaoPermitidaException.class, () -> {
             this.gerenciadoraClientes.validaIdade(idade);
         });
 
