@@ -17,7 +17,7 @@ import negocio.Cliente;
 import negocio.GerenciadoraClientes;
 import negocio.IdadeNaoPermitidaException;
 
-@DisplayName("Testes da classe GerenciadoraClientesTeste")
+@DisplayName("Testes da classe GerenciadoraClientes")
 public class GerenciadoraClientesTeste 
 {
 	private List<Cliente>        listaClientes       ;

@@ -19,7 +19,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import negocio.ContaCorrente;
 import negocio.GerenciadoraContas;
 
-@DisplayName("Testes da classe GerenciadoraContasTeste")
+@DisplayName("Testes da classe GerenciadoraContas")
 public class GerenciadoraContasTeste 
 {
 	private List<ContaCorrente> listaContas       ;
