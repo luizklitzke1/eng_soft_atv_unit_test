@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 //Libs para os testes
-import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -27,7 +27,7 @@ public class GerenciadoraClientesTeste
     private GerenciadoraClientes gerenciadoraClientes;
 
     @BeforeEach
-    public void setUp() 
+    void setUp() 
     {
         this.listaClientes = new ArrayList<Cliente>();
         
@@ -43,7 +43,7 @@ public class GerenciadoraClientesTeste
     }
 
     @AfterEach 
-    public void tearDown() 
+    void tearDown() 
     {
         this.listaClientes        = null;
         this.gerenciadoraClientes = null;

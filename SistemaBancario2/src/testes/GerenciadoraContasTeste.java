@@ -8,21 +8,19 @@ import java.util.List;
 import java.util.stream.Stream;
 
 //Libs para os testes
-import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import negocio.Cliente;
 //Imports das classes de negocio
 import negocio.ContaCorrente;
 import negocio.GerenciadoraContas;
-import negocio.IdadeNaoPermitidaException;
 
 @DisplayName("Testes da classe GerenciadoraContasTeste")
 public class GerenciadoraContasTeste 
