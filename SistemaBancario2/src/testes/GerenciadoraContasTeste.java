@@ -1,8 +1,5 @@
 package testes;
 
-import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -51,13 +48,13 @@ public class GerenciadoraContasTeste
     }
     
     @Test
-    @DisplayName("GerenciadoraContas getContasDoBanco")
+    @DisplayName("getContasDoBanco")
     public void getContasDoBanco_Test() 
     {
         Assertions.assertEquals(this.gerenciadoraContas.getContasDoBanco(), this.listaContas);
     }
     
-    @DisplayName("GerenciadoraContas pesquisaConta  Existentes")
+    @DisplayName("pesquisaConta  Existentes")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 1, 2, 3, 4, 5})
     public void pesquisaContaExistentes_Test(int id) 
@@ -65,7 +62,7 @@ public class GerenciadoraContasTeste
     	Assertions.assertNotNull(this.gerenciadoraContas.pesquisaConta(id));
     }
     
-    @DisplayName("GerenciadoraContas pesquisaConta Inexistentes")
+    @DisplayName("pesquisaConta Inexistentes")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 7, 22, 9 })
     public void pesquisaContaInexistentes_Test(int id) 
@@ -74,7 +71,7 @@ public class GerenciadoraContasTeste
     }
     
     @Test
-    @DisplayName("GerenciadoraContas adicionaConta")
+    @DisplayName("adicionaConta")
     public void adicionaConta_Test() 
     {
     	ContaCorrente conta6 = new ContaCorrente(6, 2  , false);
@@ -84,7 +81,7 @@ public class GerenciadoraContasTeste
     	Assertions.assertEquals(conta6, this.listaContas.get(5));
     }
     
-    @DisplayName("GerenciadoraContas removeConta Existente")
+    @DisplayName("removeConta Existente")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 1, 2, 3, 4, 5 })
     public void removeContaExistente_Test(int id) 
@@ -93,7 +90,7 @@ public class GerenciadoraContasTeste
     	Assertions.assertEquals(5, this.gerenciadoraContas.getContasDoBanco().size());
     }
     
-    @DisplayName("GerenciadoraContas removeConta Inexistente")
+    @DisplayName("removeConta Inexistente")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 99, 0, 23 })
     public void removeContaInexistente_Test(int id) 
@@ -102,7 +99,7 @@ public class GerenciadoraContasTeste
     	Assertions.assertEquals(5, this.gerenciadoraContas.getContasDoBanco().size());
     }
     
-    @DisplayName("GerenciadoraContas contaAtiva Ativo")
+    @DisplayName("contaAtiva Ativo")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 1, 3, 5 })
     public void contaAtivaAtivo_Test(int id) 
@@ -110,7 +107,7 @@ public class GerenciadoraContasTeste
     	Assertions.assertTrue(this.gerenciadoraContas.contaAtiva(id));
     }
     
-    @DisplayName("GerenciadoraContas contaAtiva Inativo")
+    @DisplayName("contaAtiva Inativo")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 2, 4})
     public void contaAtivaInativo_Test(int id) 
@@ -118,7 +115,7 @@ public class GerenciadoraContasTeste
     	Assertions.assertFalse(this.gerenciadoraContas.contaAtiva(id));
     }
     
-    @DisplayName("GerenciadoraContas contaAtiva Inexistente")
+    @DisplayName("contaAtiva Inexistente")
     @ParameterizedTest(name = "id: {0}")
     @ValueSource      (ints = { 99, 82, 22, 0 })
     public void contaAtivaInexistente_Test(int id) 
@@ -135,7 +132,7 @@ public class GerenciadoraContasTeste
         );
     }
     
-    @DisplayName("GerenciadoraContas transfereValor")
+    @DisplayName("transfereValor")
     @ParameterizedTest(name = "resultado: {0}, idOrigem: {1}, idDestino: {2}, valorTransf: {3}, esperadoOrigem: {4}, esperadoDestino: {5}")
     @MethodSource()
     public void transfereValor_Test(boolean resultado, int idOrigem, int idDestino, double valorTransf, double esperadoOrigem, double esperadoDestino) 

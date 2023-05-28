@@ -27,3 +27,11 @@
 5. Sair
     <p>Ao selecioanr essa opção, é apresentada a mensagem "################# Sistema encerrado #################" e a aplicação é finalizada.
 
+
+## Parte II - Implementar os testes de unidade do sistema, utilizando a biblioteca JUnit.
+
+<p> Os testes para a classe gerenciadoraClientes e gerenciadoraContas foram implementados dentro do packade "testes", nas classes GerenciadoraClientesTeste e GerenciadoraContasTeste, respectivamente, utilizando o JUnit5 e Jupiter.
+<p>Ambos os testes foram agrupados em um Suite na classe chamada TesteRegressao, presente no mesmo package. Segue abaixo um print de sua execução através da IDE Eclipse:
+
+ 
+<img src="img/resultTestes.png" alt="Execução do TesteRegressao pelo Eclipse">
