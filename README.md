@@ -1,6 +1,6 @@
 # Atividade de Eng. Softwate - Testes Unitários
 
-## Parte I - Realizar manualmente um teste de funcionalidade do sistema;
+## Parte I - Realizar manualmente um teste de funcionalidade do sistema
 
 
 <p>Ao iniciar a aplicação, o menu apresenta 5 funcionalidades, selecionáveis ao digitar seu respectivo código númerico, sendo elas: 
@@ -14,7 +14,7 @@
 2. Consultar por uma conta corrente
    <p>Ao selecioanr essa opção, é requisitado o ID de uma conta para ser consultado.
    <p>Caso o ID pertença à uma conta cadastrada na base, suas informações são apresentadas, contendo ID, Saldo e Status.
-   <p>Caso nenhuma conta correnta seja encontrada com esse ID, a mensagem "Conta não encontrado!" é apresentada.
+   <p>Caso nenhuma conta correnta seja encontrada com esse ID, a mensagem "Conta não encontrada!" é apresentada.
 
 3. Ativar um cliente
     <p>Ao selecioanr essa opção, é requisitado o ID do cliente que deseja ativar.
