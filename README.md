@@ -4,7 +4,7 @@ Aluno: Luiz Gustavo Klitzke
 ## Parte I - Realizar manualmente um teste de funcionalidade do sistema
 
 
-<p>Ao iniciar a aplicação, o menu apresenta 5 funcionalidades, selecionáveis ao digitar seu respectivo código númerico, sendo elas: 
+<p>Ao iniciar a aplicação, o menu apresenta 5 funcionalidades, selecionáveis ao digitar seu respectivo código numérico, sendo elas: 
 
 
 1. Consultar por um cliente
@@ -35,4 +35,4 @@ Aluno: Luiz Gustavo Klitzke
 <p>Ambos os testes foram agrupados em um <i>Suite</i> na classe chamada TesteRegressao, presente no mesmo package. Segue abaixo um print de sua execução através da IDE Eclipse:
 
  
-<img src="https://github.com/luizklitzke1/eng_soft_atv_unit_test/raw/main/img/resultTestes.png" alt="Execução do TesteRegressao pelo Eclipse">
+<img src="img/resultTestes.png" alt="Execução do TesteRegressao pelo Eclipse">
