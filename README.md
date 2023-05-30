@@ -1,4 +1,5 @@
 # Atividade de Eng. Softwate - Testes Unitários
+Aluno: Luiz Gustavo Klitzke
 
 ## Parte I - Realizar manualmente um teste de funcionalidade do sistema
 
@@ -14,7 +15,7 @@
 2. Consultar por uma conta corrente
    <p>Ao selecioanr essa opção, é requisitado o ID de uma conta para ser consultado.
    <p>Caso o ID pertença à uma conta cadastrada na base, suas informações são apresentadas, contendo ID, Saldo e Status.
-   <p>Caso nenhuma conta correnta seja encontrada com esse ID, a mensagem "Conta não encontrada!" é apresentada.
+   <p>Caso nenhuma conta correnta seja encontrada com esse ID, a mensagem "Conta não encontrado!" é apresentada.
 
 3. Ativar um cliente
     <p>Ao selecioanr essa opção, é requisitado o ID do cliente que deseja ativar.
@@ -30,8 +31,8 @@
 
 ## Parte II - Implementar os testes de unidade do sistema, utilizando a biblioteca JUnit.
 
-<p> Os testes para a classe gerenciadoraClientes e gerenciadoraContas foram implementados dentro do packade "testes", nas classes GerenciadoraClientesTeste e GerenciadoraContasTeste, respectivamente, utilizando o JUnit5 e Jupiter.
-<p>Ambos os testes foram agrupados em um Suite na classe chamada TesteRegressao, presente no mesmo package. Segue abaixo um print de sua execução através da IDE Eclipse:
+<p> Os testes para a classe gerenciadoraClientes e gerenciadoraContas foram implementados dentro do package "testes", nas classes GerenciadoraClientesTeste e GerenciadoraContasTeste, respectivamente, utilizando o JUnit5 e Jupiter.
+<p>Ambos os testes foram agrupados em um <i>Suite</i> na classe chamada TesteRegressao, presente no mesmo package. Segue abaixo um print de sua execução através da IDE Eclipse:
 
  
 <img src="img/resultTestes.png" alt="Execução do TesteRegressao pelo Eclipse">
